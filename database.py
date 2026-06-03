@@ -3,7 +3,6 @@ Database management for Fleet Management System
 """
 import sqlite3
 import logging
-from datetime import datetime
 from config import DB_PATH
 
 class DatabaseManager:
@@ -176,13 +175,8 @@ class DatabaseManager:
                 VALUES (?, ?, ?)
             """, (setting_name, setting_value, notes))
         
-        # Initialize tank if empty
-        self.cursor.execute("SELECT COUNT(*) FROM tank")
-        if self.cursor.fetchone()[0] == 0:
-            self.cursor.execute("""
-                INSERT INTO tank (date, liters, type, notes)
-                VALUES (?, ?, 'fill', 'Αρχικό γέμισμα δεξαμενής')
-            """, (datetime.now().strftime("%Y-%m-%d"), 5000))
+        # Do not create an automatic starting tank balance.
+        # The first real user action must be the measured initial tank quantity.
     
     def _initialize_purposes(self):
         """Initialize default purposes"""
