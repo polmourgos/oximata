@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# Build output
+build/
+dist/
+*.spec.bak
+
+# Runtime data created on each installation
+data/
+oximata.db
+oximata.log
+user_settings.json
+
+# Local exports and backups
+backups/
+images/
+Κινήσεις/
+kiniseis/
+*.db
+*.log
+
+# OS and IDE files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Installer / release archives created locally
+release/
+*.zip
+
+# Temporary files
+*.tmp
+*.temp
